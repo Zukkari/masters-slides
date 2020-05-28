@@ -1,0 +1,86 @@
+%%
+%% Author: zukkari
+%% 4/13/19
+%%
+
+% Preamble
+\documentclass{beamer}
+
+\usepackage[utf8x]{inputenc}
+\usepackage{svg}
+\usepackage[T1]{fontenc}
+\usepackage{dirtytalk}
+\usepackage{graphicx}
+
+\useinnertheme{circles}
+\setbeamertemplate{blocks}[default]
+
+\definecolor{NormalBlue}{RGB}{200,200,255}
+\setbeamercolor{block title}{bg=NormalBlue}
+
+\definecolor{LightBlue}{RGB}{220,220,255}
+\setbeamercolor{block body}{bg=LightBlue}
+
+\newenvironment{problems}[1]{
+    \setbeamercolor{block body}{bg=red!20!white}
+    \setbeamercolor{block title}{fg=red, bg=red!40!white}
+    \begin{block}{Problems}
+        #1
+    \end{block}}
+
+\title{Building a tool for detecting code smells in Android application code}
+% \subtitle{Seminar on Enterprise Software (MTAT.03.270)}
+\author[Stanislav Mõškovski]{Stanislav Mõškovski\\ {\vspace{8mm}\small Supervisors: \\ Kristiina Rahkema, MSc \\Dietmar Pfahl, PhD}}
+\institute{University of Tartu}
+\date{2019}
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
+
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+
+% Document
+\begin{document}
+    \frame{\titlepage}
+
+    \section{Motivation}\label{sec:motivation}
+    \begin{frame}{\secname}
+        Describe our motivation for the thesis here
+    \end{frame}
+
+    \section{Goals}\label{sec:goals}
+    \begin{frame}{\secname}
+        Describe the goals of our thesis here
+    \end{frame}
+
+    \section{Method}\label{sec:method}
+    \begin{frame}{\secname}
+        Describe the methods that we used to achieve the results
+    \end{frame}
+
+    \section{Results}\label{sec:results}
+    \begin{frame}{\secname}
+        Describe the results that we managed to achieve
+    \end{frame}
+
+    \section{Discussion}\label{sec:discussion}
+    \begin{frame}{\secname}
+        Discussion section
+    \end{frame}
+
+    \section{Conclusion}\label{sec:conclusion}
+    \begin{frame}{\secname}
+        Conclude the work that we have done
+    \end{frame}
+
+\end{document}
