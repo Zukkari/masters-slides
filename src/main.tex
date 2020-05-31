@@ -12,6 +12,9 @@
 \usepackage{dirtytalk}
 \usepackage{graphicx}
 
+\usepackage{listings}
+\usepackage{verbatim}
+
 \useinnertheme{circles}
 \setbeamertemplate{blocks}[default]
 
@@ -32,7 +35,7 @@
 % \subtitle{Seminar on Enterprise Software (MTAT.03.270)}
 \author[Stanislav Mõškovski]{Stanislav Mõškovski\\ {\vspace{8mm}\small Supervisors: \\ Kristiina Rahkema, MSc \\Dietmar Pfahl, PhD}}
 \institute{University of Tartu}
-\date{2019}
+\date{2020}
 
 \addtobeamertemplate{navigation symbols}{}{%
     \usebeamerfont{footline}%
@@ -53,34 +56,134 @@
 \begin{document}
     \frame{\titlepage}
 
+    \section{Introduction}\label{sec:introduction}
+    \begin{frame}{\secname}
+        \begin{itemize}
+            \item Patterns in the code
+            \item Poor design and implementation choices
+            \item Technical debt
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Code smell example}
+        \begin{verbatim}
+        Exception in thread \say{main} java.lang.NullPointerException \\
+        \quad at Scratch.main(scratch\_67.java:5) \\
+        Process finished with exit code 1
+        \end{verbatim}
+    \end{frame}
+
+    \begin{frame}{Code smell example}
+        \begin{verbatim}
+class Scratch \{ \\
+\quad public static void main(String[] args) \{ \\
+\quad \quad new Foo().bar().bar().bar().bar(); \\
+\quad \} \\
+\}
+        \end{verbatim}
+    \end{frame}
+
     \section{Motivation}\label{sec:motivation}
     \begin{frame}{\secname}
-        Describe our motivation for the thesis here
+        \begin{itemize}
+            \item Reduce maintenance costs
+            \item Increase code quality
+            \item Reduce the complexity of software maintenance
+            \item Introduction of new features should be easy
+        \end{itemize}
     \end{frame}
 
     \section{Goals}\label{sec:goals}
     \begin{frame}{\secname}
-        Describe the goals of our thesis here
+        Develop a static analysis tool which
+        \begin{itemize}
+            \item is able to analyze Android applications written in Java
+            \item detects a large number of code smells
+            \item is open-source
+            \item scales
+        \end{itemize}
+
+        \begin{flushleft}
+            Verify the tool against a corpus of applications.
+        \end{flushleft}
     \end{frame}
 
     \section{Method}\label{sec:method}
     \begin{frame}{\secname}
-        Describe the methods that we used to achieve the results
+        \begin{itemize}
+            \item Develop a plugin for SonarQube
+            \item Scala as implementation language
+            \item Testing using SonarQube testing framework and ScalaTest
+            \item Dataset of 1509 applications to perform empirical study
+            \item Develop an analysis procedure
+        \end{itemize}
     \end{frame}
 
     \section{Results}\label{sec:results}
     \begin{frame}{\secname}
-        Describe the results that we managed to achieve
+        SonarQube plugin:
+        \begin{itemize}
+            \item 26 code smells
+            \item 119 classes
+            \item 6476 lines of code
+            \item 92 tests (97\% line coverage)
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{\secname}
+        Analysis results:
+        \begin{itemize}
+            \item 240 successfully analyzed applications
+            \item 1 450 793 lines of code analyzed in total \\ (mean 6044 LOC, median 2982 LOC)
+            \item 109 602 instances of code smells detected
+            \item 29 out of 30 defined code smells were detected at least once
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{\secname}
+        \begin{figure}
+            \centering
+            \includegraphics[scale=0.5]{applications_contains_x_3.png}
+            \caption{How many applications contain code smell $X$?}
+            \label{fig:my_label}
+        \end{figure}
+    \end{frame}
+
+    \begin{frame}{\secname}
+        \begin{figure}
+            \centering
+            \includegraphics[scale=0.5]{distribution_3.png}
+            \caption{Distribution of code smells inside the analyzed applications.}
+            \label{fig:my_label}
+        \end{figure}
     \end{frame}
 
     \section{Discussion}\label{sec:discussion}
-    \begin{frame}{\secname}
-        Discussion section
+    \begin{frame}{Comparison to published results}
+        \begin{figure}
+            \centering
+            \includegraphics[scale=0.5]{comparison_2.png}
+            \caption{Comparison of distributions of detected code smells}
+            \label{fig:my_label}
+        \end{figure}
+    \end{frame}
+
+    \begin{frame}{Potential usages}
+        \begin{itemize}
+            \item Developers
+            \item Project managers
+            \item Data scientists
+        \end{itemize}
     \end{frame}
 
     \section{Conclusion}\label{sec:conclusion}
     \begin{frame}{\secname}
-        Conclude the work that we have done
+        \begin{itemize}
+            \item Developed a plugin for SonarQube
+            \item Plugin can detect 26 code smells
+            \item Performed an empirical study to evaluate the plugin
+            \item Results are somewhat different to previously published studies
+        \end{itemize}
     \end{frame}
 
 \end{document}
