@@ -24,33 +24,20 @@
 \definecolor{LightBlue}{RGB}{220,220,255}
 \setbeamercolor{block body}{bg=LightBlue}
 
-\newenvironment{problems}[1]{
-    \setbeamercolor{block body}{bg=red!20!white}
-    \setbeamercolor{block title}{fg=red, bg=red!40!white}
-    \begin{block}{Problems}
-        #1
-    \end{block}}
+\usetheme[sectionpage=none,progressbar=frametitle]{metropolis}
+
+\makeatletter
+\setlength{\metropolis@titleseparator@linewidth}{3pt}
+\setlength{\metropolis@progressonsectionpage@linewidth}{3pt}
+\setlength{\metropolis@progressinheadfoot@linewidth}{3pt}
+\makeatother
+
 
 \title{Building a tool for detecting code smells in Android application code}
 % \subtitle{Seminar on Enterprise Software (MTAT.03.270)}
-\author[Stanislav Mõškovski]{Stanislav Mõškovski\\ {\vspace{8mm}\small Supervisors: \\ Kristiina Rahkema, MSc \\Dietmar Pfahl, PhD}}
+\author[Stanislav Mõškovski]{Stanislav Mõškovski\vspace{8mm} \\ {\small Supervisors: \\ Kristiina Rahkema, MSc \\Dietmar Pfahl, PhD}}
 \institute{University of Tartu}
 \date{2020}
-
-\addtobeamertemplate{navigation symbols}{}{%
-    \usebeamerfont{footline}%
-    \usebeamercolor[fg]{footline}%
-    \hspace{1em}%
-    \insertframenumber/\inserttotalframenumber
-}
-
-\AtBeginSection[]
-{
-    \begin{frame}
-        \frametitle{Table of Contents}
-        \tableofcontents[currentsection]
-    \end{frame}
-}
 
 % Document
 \begin{document}
@@ -184,6 +171,10 @@ class Scratch \{ \\
             \item Performed an empirical study to evaluate the plugin
             \item Results are somewhat different to previously published studies
         \end{itemize}
+    \end{frame}
+
+    \begin{frame}[standout]
+        Thank you!
     \end{frame}
 
 \end{document}
